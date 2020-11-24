@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Encyclopedia {{ entryname }}
+{% endblock %}
+
+{% block body %}
+   {% if l == none %}
+     <h1>{{ entryname }} NOT FOUND !</h1>
+   {% else %}
+    <h1>Search results for "{{ entryname }}"</h1>
+    <ul>
+        {% for entry in l %}
+            <li><a href="http://127.0.0.1:8000/{{ entry }}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+    
+   {% endif %}     
+
+{% endblock %}

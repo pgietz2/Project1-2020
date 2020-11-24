@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Encyclopedia {{ entryname }}
+{% endblock %}
+
+{% block body %}
+
+   {% if entry == none %}
+     <h1>{{ entryname }} NOT FOUND !</h1>
+   {% else %}
+    {% for k in entry %}
+      <p>{{ k | safe }}</p>
+    {% endfor %}
+   {% endif %}     
+   <br><br>
+   <div>
+      <a href="{% url 'edit' entryname=entryname %}">Edit</a>
+   </div>
+{% endblock %}
